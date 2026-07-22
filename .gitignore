@@ -1,0 +1,12 @@
+# R / Shiny
+.Rhistory
+.RData
+.Rproj.user
+
+# Shiny results
+results/
+*.csv
+*.rds
+
+# Credentials
+rsconnect/

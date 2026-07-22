@@ -1,0 +1,10 @@
+Package: OptmWiz
+Type: Package
+Title: Optimization Wizard for Pricing
+Version: 0.1.0
+Authors@R: person("Prasanth", "V.P.", email = "prasanth.stat@gmail.com", role = c("aut", "cre"))
+Description: A Shiny application and supporting functions for price optimization using Random Forest.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: shiny, shinydashboard, DT, ggplot2, dplyr, randomForest, klaR, reshape2, data.table, kableExtra, scales

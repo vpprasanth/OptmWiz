@@ -1,0 +1,101 @@
+# Install fs if you don't have it yet
+# if (!requireNamespace("fs", quietly = TRUE)) install.packages("fs")
+
+# Print the folder tree
+fs::dir_tree(getwd())
+
+# Delete the NAMESPACE file in the current working directory
+if (file.exists("NAMESPACE")) {
+  file.remove("NAMESPACE")
+  cat("NAMESPACE file successfully removed.\n")
+} else {
+  cat("NAMESPACE file not found.\n")
+}
+
+shiny::runApp("app.R")
+
+# Development & generate documentation
+# setwd("C:/Prasanth/myPrograms/R Programs/2026/OptmWiz")
+devtools::load_all()
+devtools::document()
+
+# Install package locally
+devtools::install(
+  upgrade = FALSE,
+  dependencies = FALSE
+)
+
+# Optional package check
+devtools::check()
+
+
+# Fresh-session test: Restart R:
+library(OptmWiz)
+options(shiny.fullstacktrace = TRUE)
+data_review()
+
+# Renders the vignettes to a local doc/ website for immediate visual preview
+pkgdown::build_articles()
+devtools::build()
+
+# Optionally test in a clean session:
+install.packages(
+  "OptmWiz_1.0.0.tar.gz",
+  repos = NULL,
+  type = "source"
+)
+
+library(SpecWiz)
+spec_wiz() # or
+data_review() # or
+dsr() # or
+DSR()
+
+
+# Before release
+# git init
+# git add .
+# git commit -m "Release v1.0.0"
+# git tag v1.0.0
+
+# Search the keyword, "setNames":
+grep(
+  "setNames",
+  unlist(
+    lapply(
+      list.files("R", full.names = TRUE),
+      readLines
+    )
+  ),
+  value = TRUE
+)
+
+#------------------
+# search the file itself for the keyword, "readxlsb"
+rfiles <- list.files("R", full.names = TRUE)
+
+for (f in rfiles) {
+  txt <- readLines(f, warn = FALSE)
+
+  if (any(grepl("readxlsb", txt, fixed = TRUE))) {
+    cat("FOUND IN:", f, "\n")
+  }
+}
+
+#---------------------------------------------------------------------
+# Find all files recursively across all subfolders
+all_files <- list.files(path = ".", recursive = TRUE, full.names = TRUE)
+
+# Loop through every file to search for the keyword
+for (f in all_files) {
+  # Skip directories if they accidentally get listed
+  if (dir.exists(f)) next
+  
+  # Read file safely
+  txt <- readLines(f, warn = FALSE)
+
+  # Check for the specific keyword
+  if (any(grepl("DataSpecsReviewer", txt, fixed = TRUE))) {
+    cat("FOUND IN:", f, "\n")
+  }
+}
