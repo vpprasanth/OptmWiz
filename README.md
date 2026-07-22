@@ -57,7 +57,7 @@ OptmWiz is hosted as a **prototype Shiny app**:
 - Interactive dashboards display acceptance probabilities.  
 - Results can be explored visually but not downloaded or reused.  
 
-👉 [**Launch the Demo App**](https://your-shinyapps-link-here)  
+👉 [**Launch the Demo App**](https://vpprasanth.shinyapps.io/optmwiz/)  
 
 ---
 
