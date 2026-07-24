@@ -7,6 +7,12 @@ It is hosted as a **prototype demo** — users can interact with the app using t
 
 ---
 
+## 👥 Authors & Citation
+* **Prasanth V P and Midhu N N**
+* Contact/E-mail: prasanth.stat@gmail.com
+
+---
+
 ## 📖 Problem Statement
 
 A logistics and construction services company (dummy name: **BuildSmart Inc.**) faced a recurring challenge:  
